@@ -1,0 +1,12 @@
+[Unit]
+Description=mqtt receive and play video and images.
+Requires=mosquitto.service
+After=mosquitto.service
+ConditionPathExists=/home/pi/Display_prj
+[Service]
+ExecStart=/bin/python3 /home/pi/Display_prj/mqtt_play.py
+Restart=always
+Type=simple	
+
+[Install]
+WantedBy=default.target
