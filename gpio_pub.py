@@ -4,6 +4,31 @@ import sys
 import signal
 from time import sleep              # 3秒間のウェイトのために使う
 
+import RPi.GPIO as GPIO
+
+io_cmd_list = [
+    [17,"0"],
+    [27,"1"],
+    [22,"2"],
+    [10,"3"],
+    [9,"4"],
+    [11,"5"],
+    [5,"6"],
+    [6,"7"],
+    [13,"8"],
+    [19,"9"],
+    [26,"A"],
+    [21,"M"],
+    [20,"."],
+    [16,"`"],
+    [12,"="],
+    [7,"+"],
+    [8,"-"],
+    [25,"*"],
+    [24,"/"],
+    [23,"%"]
+]
+
 def handler(signal, frame):
         print('keyboard abort')
         sys.exit(0)
@@ -11,6 +36,21 @@ def handler(signal, frame):
 if __name__ == '__main__':
 
     signal.signal(signal.SIGINT, handler)
+
+    # ボタンの割込み関数
+    def gpio_callback(channel):
+        global status
+        print("gpio ditected!")
+        for io_cmd in io_cmd_list:
+            if io_cmd[0] == channel:
+                print(io_cmd[1])
+                client.publish("gpio",io_cmd[1])    # トピック名とメッセージを決めて送信
+
+    #pin Name method GPIO
+    GPIO.setmode(GPIO.BCM)
+    for io_cmd in io_cmd_list:
+        GPIO.setup(io_cmd[0], GPIO.IN, pull_up_down=GPIO.PUD_UP)
+        GPIO.add_event_detect(io_cmd[0], GPIO.FALLING, callback=gpio_callback, bouncetime=500)
 
     
     # ブローカーに接続できたときの処理
@@ -35,8 +75,4 @@ if __name__ == '__main__':
 
     client.connect("localhost", 1883, 60)  # 接続先は自分自身
 
-    client.loop_start()    # subはloop_forever()だが，pubはloop_start()で起動だけさせる
-
-    while True:
-        client.publish("gpio","3")    # トピック名とメッセージを決めて送信
-        sleep(10)   # 3秒待つ
+    client.loop_forever()    # subはloop_forever()でずっと待てる，loop_start()で起動だけさせる.
