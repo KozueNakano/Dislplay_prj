@@ -1,0 +1,12 @@
+[Unit]
+Description=read gpio and publish command.
+Requires=mosquitto.service
+After=mosquitto.service
+ConditionPathExists=/home/pi/Display_prj
+[Service]
+ExecStart=/bin/python3 /home/pi/Display_prj/gpio_pub.py
+Restart=always
+Type=simple	
+
+[Install]
+WantedBy=default.target
