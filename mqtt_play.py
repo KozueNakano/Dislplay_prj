@@ -32,7 +32,7 @@ class VideoPlayer:
             print("q sent")
 
     def startVideo(self,n):
-        cmd = "omxplayer /home/pi/Display_prj/%d.mp4"%(n)
+        cmd = "omxplayer --aspect-mode stretch /home/pi/Display_prj/%d.mp4"%(n)
         print(cmd)
         self.proc = subprocess.Popen(cmd, shell=True, 
                                         stdin=subprocess.PIPE, 
