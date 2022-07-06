@@ -155,6 +155,22 @@ framebuffer_height=1440
 - https://twitter.com/_mer2/status/1299588071181053952
 - https://akizukidenshi.com/catalog/g/gM-11967/
 
+### ftpで動画ファイルを入れ替える方法
+1. piを起動する
+1. SSID:アップロード元のPCで、display_prjに接続する
+1. filezillaでクイック接続
+    - host:gw.wlan
+    - user:pi
+    - pass:デフォルトならraspberry
+    - port:22
+1. ~/Display_prjに動画、静止画ファイルをアップロードする。ファイル名を以下の通りとする。
+    - 動画
+        - 1920x1400
+        - 0~9.mp4
+    - 静止画
+        - 1920x1400
+        - ..png , +-.png , =.png , +.png , -.png , *.png , :.png , %.png
+
 ### 電源断に対するreadOnly化
 - raspi-config
     - 4 Performance Options
