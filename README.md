@@ -71,12 +71,9 @@
     ```
 ### fbi install
 - `sudo apt-get install fbi`
-- フレームバッファの解像度をモニターに合わせる
-- 必要かわからない→不要だった（下記するまで反映してなかった)`sudo fbset -fb /dev/fb0 -g 1920 1080 1920 1080 16`
-- 必須
-    - /boot/config.txt
-        - uncomment 
-        `#disable_overscan=1`→`disable_overscan=1`
+- /boot/config.txt
+    - uncomment 
+    `#disable_overscan=1`→`disable_overscan=1`
 ### python library install
 - pip
     - `sudo apt install -y python3 python3-pip`
