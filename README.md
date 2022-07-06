@@ -177,3 +177,27 @@ framebuffer_height=1440
         - P3 Overlay File System
             - overlay : enable
             - boot Partition : readOnly
+
+### M5 Stackボタン:GPIO:ファイル名対応
+|  GPIO No.  |  MQTT Cmd.  | Description |
+| ---- | ---- | ---- |
+| 3 |  | 起動/シャットダウン |
+| 2 | "0" | 0.mp4
+| 17 | "1" | 1.mp4
+| 27 | "2" | 2.mp4
+| 22 | "3" | 3.mp4
+| 5 | "4" | 4.mp4
+| 6 | "5" | 5.mp4
+| 13 | "6" | 6.mp4
+| 19 | "7" | 7.mp4
+| 26 | "8" | 8.mp4
+| 21 | "9" | 9.mp4
+| 20 | "A" | 停止
+| 16 | "." | ..png
+| 12 | "`" | +-.png
+| 25 | "=" | =.png
+| 24 | "+" | +.png
+| 23 | "-" | -.png
+| 18 | "*" | *.png
+| 15 | "/" | :.png
+| 14 | "%" | %.png
