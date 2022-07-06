@@ -93,10 +93,18 @@ if __name__ == '__main__':
             vp.startVideo(videoNo)
         if msg.payload == b'A':
             vp.stop()
-        if msg.payload in [b'.',b'`',b'=',b'+',b'-',b'*',b'/',b'%']:
+        if msg.payload in [b'.',b'=',b'+',b'-',b'*',b'%']:
             vp.stop()
             print(msg.payload.decode())
             vp.startImage(msg.payload.decode())
+        if msg.payload in [b'`']:
+            vp.stop()
+            print("+-")
+            vp.startImage("+-")
+        if msg.payload in [b'/']:
+            vp.stop()
+            print(":")
+            vp.startImage(":")
         #if msg.payload == b'M':
         #    os.system("TERM=linux sudo echo -e '\\033\\0143' > /dev/tty1")
 
