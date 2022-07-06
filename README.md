@@ -8,7 +8,8 @@
 ### ローカル用ネットワークのAPとDHCPを設定する
 - 有線LANでインターネットに接続できるようにしておく。
 - 設定のipaddress、hostname、等はすべてそのまま使う
-- raspberry pi os "buster"の頃のガイドに従って、APをDHCPを設定する。
+- raspberry pi os "buster"の頃のガイドに従って、APとDHCPを設定する。
+    [Guide](https://www.raspberrypi.com/documentation/computers/configuration.html#setting-up-a-routed-wireless-access-point)
 - hostname gw.wlan
 - ssid display_prj
 - pass raspberrypi
