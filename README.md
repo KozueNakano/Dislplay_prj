@@ -173,7 +173,7 @@ framebuffer_height=1440
         - 動画形式 ~1440x1080 .mp4
         - 0~9.mp4
     - 静止画
-        - 静止画形式 ~1920x1400 .png
+        - 静止画形式 ~1920x1440 .png
         - ..png , +-.png , =.png , +.png , -.png , *.png , :.png , %.png
 
 ### 電源断に対するreadOnly化
