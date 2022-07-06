@@ -201,3 +201,7 @@ framebuffer_height=1440
 | 18 | "*" | *.png
 | 15 | "/" | :.png
 | 14 | "%" | %.png
+
+### m5 stack setup
+- m5 stack Faceの、電卓ボタンのハードウエアで動作する
+- main_reconnect_AP.m5fを、M5Flowに読み込んで、M5stackに書き込む
