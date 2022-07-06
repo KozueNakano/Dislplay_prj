@@ -5,6 +5,11 @@
 - WLANのロケーション設定
 - TimeZoneの設定
 - keyboard使う場合はkeymapの設定
+### gpuの割当メモリを増やす
+- `sudo raspi-config`
+    - 4 Performance Options
+        - P2 GPU Memory
+            - 256
 ### ローカル用ネットワークのAPとDHCPを設定する
 - 有線LANでインターネットに接続できるようにしておく。
 - 設定のipaddress、hostname、等はすべてそのまま使う
@@ -165,10 +170,10 @@ framebuffer_height=1440
     - port:22
 1. ~/Display_prjに動画、静止画ファイルをアップロードする。ファイル名を以下の通りとする。
     - 動画
-        - 1920x1400
+        - 動画形式 ~1440x1080 .mp4
         - 0~9.mp4
     - 静止画
-        - 1920x1400
+        - 静止画形式 ~1920x1400 .png
         - ..png , +-.png , =.png , +.png , -.png , *.png , :.png , %.png
 
 ### 電源断に対するreadOnly化
