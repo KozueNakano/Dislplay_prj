@@ -171,6 +171,21 @@ framebuffer_height=1440
         - 1920x1400
         - ..png , +-.png , =.png , +.png , -.png , *.png , :.png , %.png
 
+### SSHによる接続方法
+1. Piを起動する
+1. 接続するPCで、Piが立ち上げているAP(display_prj)に接続する
+1. - terminalからssh接続する
+    - `ssh pi@gw.wlan`
+    - ホストが変わっている警告が出たら、sshキーを新たに生成し直す。
+        - *`WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED!`*
+        - `ssh-keygen -R gw.wlan`
+
+### KeyBoardによる接続方法
+1. Piを起動する
+1. PiのUSBポートにキーボードを接続する
+1. ctrl + alt + F2
+1. コンソールにログインする
+
 ### 電源断に対するreadOnly化
 - raspi-config
     - 4 Performance Options
