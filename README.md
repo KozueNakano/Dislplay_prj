@@ -72,7 +72,7 @@
     ```
     sudo reboot now
     mosquitto_sub -h localhost -p 1883 -t "#" -u sub -P mosquitto
-    mosquitto_pub -h raspberrypi.local -p 1883 -t "a" -m "ho"
+    mosquitto_pub -h raspberrypi.local -p 1883 -t "a" -m "hoy" -u sub -P mosquitto
     ```
 ### fbi install
 - `sudo apt-get install fbi`
