@@ -160,6 +160,26 @@ framebuffer_height=1440
 - https://twitter.com/_mer2/status/1299588071181053952
 - https://akizukidenshi.com/catalog/g/gM-11967/
 
+
+### wifiのチャンネルの自動設定
+hostapdのacsでの自動設定は、piのハードウェアでは機能しないので、次のスクリプトを組み込む。https://gist.github.com/jacobq/ea044bfbf00dd88ed6e3d42cb1fee392
+
+- node.jsのインストール
+```
+sudo apt install nodejs npm
+```
+- スクリプトのリポジトリをclone
+```
+mkdir /home/pi/wifi_acs
+git clone git@gist.github.com:ea044bfbf00dd88ed6e3d42cb1fee392.git /home/pi/wifi_acs/
+```
+- 自動起動を設定する
+```
+sudo cp /home/pi/Display_prj/wifi_acs_scripts/wifi_acs.service /etc/systemd/system/
+sudo systemctl daemon-reload
+sudo systemctl enable wifi_acs.service
+```
+
 ### ftpで動画ファイルを入れ替える方法
 1. piを起動する
 1. SSID:アップロード元のPCで、display_prjに接続する
