@@ -1,0 +1,1 @@
+node /home/pi/wifi_acs/scan-wifi-channels.js|{ v=$(cat) ;sudo sed -i -e "s/channel=\(.*\)/channel="$v"/g"  /etc/hostapd/hostapd.conf;}

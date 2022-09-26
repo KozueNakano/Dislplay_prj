@@ -1,0 +1,13 @@
+[Unit]
+Description=wifiChannelAutoSetting
+Requires=hostapd.service
+After=sys-subsystem-net-devices-wlan0.device
+Before=hostapd.service
+ConditionPathExists=/home/pi/Display_prj/wifi_acs_scripts
+[Service]
+ExecStart=/bin/sh /home/pi/Display_prj/wifi_acs_scripts/wifi_acs.sh
+Restart=on-failure
+Type=forking
+
+[Install]
+WantedBy=default.target
