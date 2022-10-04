@@ -15,14 +15,12 @@ class VideoPlayer:
         self.imageState = 0
 
     def stop(self):
-        if self.imageState == 1:
-            #stop image
-            c = '\x1B'#"q"
-            print(c)
-            with open('/dev/tty1', mode='w') as f:
-                fcntl.ioctl(f, termios.TIOCSTI, c)
-                print('quit fbi sent')
-            os.system("TERM=linux sudo echo -e 'q\\033\\0143' > /dev/tty1")
+        #stop image
+        os.system("TERM=linux sudo echo -e 'q\\033\\0143' > /dev/tty1")
+        c = "q\n"#'\x1B'#"q"
+        with open('/dev/tty1', mode='w') as f:
+            fcntl.ioctl(f, termios.TIOCSTI, c)
+            print('quit fbi sent')
             self.imageState = 0
 
         if self.proc is not None and self.proc.poll() is None:
@@ -38,12 +36,12 @@ class VideoPlayer:
                                         stdin=subprocess.PIPE, 
                                         universal_newlines=True)
     def startImage(self,a):
+        self.imageState = 1
         cmd = "fbi -T 1 -d /dev/fb0 -a --noverbose --nocomments /home/pi/Display_prj/%s.png"%(a)
         print(cmd)
         self.proc = subprocess.Popen(cmd, shell=True, 
                                         stdin=subprocess.PIPE, 
                                         universal_newlines=True)
-        self.imageState = 1
 
 
 
